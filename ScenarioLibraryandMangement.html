@@ -1,0 +1,147 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+    Scenario Library and Management
+  </title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <style>
+    .bg-custom-red {
+      background-color: #C53F3F;
+    }
+    .text-custom-red {
+      color: #C53F3F;
+    }
+    .nav-item {
+      transition: transform 0.3s, background-color 0.3s;
+      padding: 0.5rem;
+      border-radius: 0.5rem;
+    }
+    .nav-item:hover {
+      transform: scale(1.05);
+      background-color: #4A5568; /* Dark grey */
+    }
+    .active-nav-item {
+      background-color: #2D3748; /* Even darker grey */
+    }
+    .button {
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+</head>
+<body class="bg-gray-200">
+  <div class="flex h-screen">
+    <!-- Sidebar -->
+    <div class="bg-custom-red text-white w-1/4 p-6 flex flex-col items-center">
+      <div class="mb-6 flex items-center">
+        <div class="bg-black rounded-full h-12 w-12 flex items-center justify-center">
+          <i class="fas fa-user text-white text-2xl"></i>
+        </div>
+        <h2 class="text-xl font-bold ml-4">
+          Admin Dashboard
+        </h2>
+      </div>
+      <nav class="flex flex-col space-y-4 w-full flex-1">
+        <a class="hover:underline flex items-center nav-item" href="D:/module one/editprofile.html">
+          <i class="fas fa-user-edit mr-2 text-black"></i>
+          Edit Profile
+        </a>
+        <a class="hover:underline flex items-center nav-item" href="D:/module one/AccountSetting.html">
+          <i class="fas fa-cog mr-2 text-black"></i>
+          Account Settings
+        </a>
+        <a class="hover:underline flex items-center nav-item active-nav-item" href="D:/module one/ScenarioLibraryandMangement.html">
+          <i class="fas fa-book mr-2 text-black"></i>
+          Scenario Library and Management
+        </a>
+        <a class="hover:underline flex items-center nav-item" href="D:/module one/SystemHealthAndMonitoring.html">
+          <i class="fas fa-heartbeat mr-2 text-black"></i>
+          System Health and Monitoring
+        </a>
+        <a class="hover:underline flex items-center nav-item" href="D:/module one/Analytics.html">
+          <i class="fas fa-chart-line mr-2 text-black"></i>
+          Analytics
+        </a>
+      </nav>
+      <div class="mt-auto">
+        <a class="hover:underline flex items-center nav-item" href="D:/module one/signout.html">
+          <i class="fas fa-sign-out-alt mr-2 text-black"></i>
+          Sign Out
+        </a>
+      </div>
+    </div>
+    <!-- Main Content -->
+    <div class="flex-1 p-8">
+      <h1 class="text-3xl font-bold mb-6">
+        Scenario Library and Management
+      </h1>
+      <div class="bg-white p-6 rounded-lg shadow-md">
+        <h2 class="text-xl font-semibold mb-4">
+          Search and Filter Scenarios
+        </h2>
+        <div class="mb-6">
+          <label class="block text-gray-700 mb-2" for="difficulty">
+            Choose Difficulty level
+          </label>
+          <select class="w-full p-2 border rounded" id="difficulty">
+            <option>
+              Choose Difficulty Level
+            </option>
+            <option>
+              Easy
+            </option>
+            <option>
+              Medium
+            </option>
+            <option>
+              Hard
+            </option>
+          </select>
+        </div>
+        <div class="mb-6">
+          <label class="block text-gray-700 mb-2" for="search">
+            Search Scenario
+          </label>
+          <div class="flex">
+            <input class="w-full p-2 border rounded-l" id="search" placeholder="Type Scenario" type="text"/>
+            <button class="bg-custom-red text-white p-2 rounded-r">
+              <i class="fas fa-search"></i>
+              Search
+            </button>
+          </div>
+        </div>
+        <h2 class="text-xl font-semibold mb-4">
+          Access Pre-Configured Scenarios:
+        </h2>
+        <p class="text-gray-700 mb-4 flex items-center">
+          <i class="fas fa-globe mr-2 text-black"></i>
+          Browse a curated library of scenarios
+        </p>
+        <div class="flex justify-center space-x-4">
+          <a href="D:\module one\Navigation.html">
+            <button class="bg-custom-red text-white py-2 px-4 rounded transform transition-transform duration-300 hover:scale-105 button">
+              Navigation
+            </button>
+          </a>
+          <a href="D:/module one/Emergencies.html">
+            <button class="bg-custom-red text-white py-2 px-4 rounded transform transition-transform duration-300 hover:scale-105 button">
+              Emergencies
+            </button>
+          </a>
+          <a href="D:/module one/weather.html">
+            <button class="bg-custom-red text-white py-2 px-4 rounded transform transition-transform duration-300 hover:scale-105 button">
+              Weather Challenges
+            </button>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

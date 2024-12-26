@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Challenges Navigation Screen</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+
+        header {
+            background-color: #C53F3F;
+            color: white;
+            padding: 1em 2em;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .container {
+            display: flex;
+            height: calc(100vh - 80px); /* Adjust height to fit header */
+        }
+
+        .sidebar {
+            width: 20%;
+            background-color: #6B6B6B;
+            color: white;
+            padding: 1em;
+            height: 100%;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            transition: width 0.3s;
+        }
+
+        .sidebar:hover {
+            width: 25%; /* Expand sidebar on hover */
+        }
+
+        .sidebar h3 {
+            margin-bottom: 1em;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            margin: 0.5em 0;
+            cursor: pointer;
+            transition: background-color 0.3s, padding 0.3s;
+            padding: 0.5em;
+            border-radius: 4px;
+        }
+
+        .sidebar ul li:hover {
+            background-color: #C53F3F; /* Highlight on hover */
+        }
+
+        .content {
+            flex: 1;
+            padding: 2em;
+            overflow-y: auto; /* Allow scrolling if content overflows */
+        }
+
+        .search-bar {
+            margin-bottom: 1em;
+            display: flex;
+        }
+
+        .search-bar input {
+            flex: 1;
+            padding: 0.5em;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            transition: border-color 0.3s;
+        }
+
+        .search-bar input:focus {
+            border-color: #C53F3F; /* Change border color on focus */
+            outline: none;
+        }
+
+        .search-bar button {
+            margin-left: 0.5em;
+            padding: 0.5em 1em;
+            background-color: #C53F3F;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .search-bar button:hover {
+            background-color: #a32a2a; /* Darker shade on hover */
+            transform: scale(1.05); /* Slightly enlarge button on hover */
+        }
+
+        .scenario-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1em;
+        }
+
+        .scenario-card {
+            background-color: white;
+            border: 1px solid #ccc;
+            padding: 1em;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .scenario-card:hover {
+            transform: translateY(-5px); /* Lift effect on hover */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .scenario-card h4 {
+            margin-top: 0;
+        }
+
+        .details-pane {
+            margin-top: 2em;
+            padding: 1em;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .details-pane h3 {
+            margin-top: 0;
+        }
+
+        .details-pane button {
+            background-color: #C53F3F;
+            color: white;
+            border: none;
+            padding: 0.5em  1em;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 0.5em;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .details-pane button:hover {
+            background-color: #a32a2a; /* Darker shade on hover */
+            transform: scale(1.05); /* Slightly enlarge button on hover */
+        }
+
+        .icon {
+            width: 20px;
+            height: 20px;
+            margin-right: 0.5em;
+            vertical-align: middle;
+        }
+
+        .weather-icon {
+            color: #C53F3F; /* Weather color */
+        }
+
+        .statistics-table {
+            margin-top: 2em;
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .statistics-table th, .statistics-table td {
+            border: 1px solid #ccc;
+            padding: 0.5em;
+            text-align: left;
+        }
+
+        .statistics-table th {
+            background-color: #C53F3F;
+            color: white;
+        }
+
+        /* Add media query for responsiveness */
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 100%;
+                height: auto;
+            }
+
+            .container {
+                flex-direction: column;
+            }
+
+            .content {
+                padding: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Weather Challenges Navigation</h1>
+    </header>
+    <div class="container">
+        <div class="sidebar">
+            <h3>Weather Categories</h3>
+            <ul>
+                <li><span class="weather-icon">🌪️</span>Severe Turbulence</li>
+                <li><span class="weather-icon">🌧️</span>Heavy Rain</li>
+                <li><span class="weather-icon">⛈️</span>Thunderstorms</li>
+                <li><span class="weather-icon">❄️</span>Snowstorms</li>
+                <li><span class="weather-icon">💨</span>Crosswinds</li>
+            </ul>
+        </div>
+        <div class="content">
+            <div class="search-bar">
+                <input type="text" placeholder="Search scenarios by tags like 'storm', 'low visibility', or 'icing'...">
+                <button>Search</button>
+            </div>
+            <div class="scenario-list">
+                <div class="scenario-card">
+                    <h4>Severe Turbulence Training</h4>
+                    <p>Simulate severe turbulence and learn handling techniques.</p>
+                </div>
+                <div class="scenario-card">
+                    <h4>Heavy Rain Navigation</h4>
+                    <p>Practice navigation techniques in heavy rain conditions.</p>
+                </div>
+                <div class="scenario-card">
+                    <h4>Thunderstorm Avoidance</h4>
+                    <p>Learn to identify and avoid thunderstorms during flight.</p>
+                </div>
+                <div class="scenario-card">
+                    <h4>Snowstorm Operations</h4>
+                    <p>Train for operations during snowstorms and low visibility.</p>
+                </div>
+                <div class="scenario-card">
+                    <h4>Crosswind Landing Techniques</h4>
+                    <p>Practice landing techniques in crosswind conditions.</p>
+                </div>
+            </div>
+            <div class="details-pane">
+                <h3>Scenario Details</h3>
+                <p><strong>Description:</strong> Simulate severe turbulence and learn handling techniques.</p>
+                <p><strong>Objectives:</strong> Enhance pilot skills in turbulent conditions.</p>
+                <p><strong>Linked Modules:</strong> Advanced Flight Maneuvers Training</p>
+                <p><strong>Version History:</strong></p>
+                <ul>
+                    <li>Version 1.0 - Initial release (03/01/2024)</li>
+                    <li>Version 1.1 - Updated training protocols (03/15/2024)</li>
+                </ul>
+                <button>Edit Scenario</button>
+                <button>Revert to Previous Version</button>
+                <button>Delete Scenario</button>
+            </div>
+            <table class="statistics-table">
+                <thead>
+                    <tr>
+                        <th>Category</th>
+                        <th>Number of Scenarios</th>
+                        <th>Last Updated</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Severe Turbulence</td>
+                        <td>3</td> <!-- Fixed missing closing tag -->
+                        <td>03/10/2024</td>
+                        <td>Active</td>
+                    </tr>
+                    <tr>
+                        <td>Heavy Rain</td>
+                        <td>2</td>
+                        <td>03/05/2024</td>
+                        <td>Active</td>
+                    </tr>
+                    <tr>
+                        <td>Thunderstorms</td>
+                        <td>4</td>
+                        <td>03/12/2024</td>
+                        <td>Active</td>
+                    </tr>
+                    <tr>
+                        <td>Snowstorms</td>
+                        <td>2</td>
+                        <td>03/08/2024</td>
+                        <td>Inactive</td>
+                    </tr>
+                    <tr>
+                        <td>Crosswinds</td>
+                        <td>3</td>
+                        <td>03/15/2024</td>
+                        <td>Active</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

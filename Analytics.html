@@ -1,0 +1,116 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Analytics</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        .sidebar-item:hover {
+            transform: scale(1.1);
+            transition: transform 0.2s;
+        }
+        .sidebar-item {
+            transition: background-color 0.2s;
+        }
+        .sidebar-item:hover {
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+        .hover-reveal {
+            position: relative;
+        }
+        .hover-reveal .hover-text {
+            opacity: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            transition: opacity 0.2s;
+        }
+        .hover-reveal:hover .hover-text {
+            opacity: 1;
+        }
+        .disappear-on-click {
+            cursor: pointer;
+        }
+        .disappear-on-click.clicked {
+            display: none;
+        }
+    </style>
+    <script>
+        function handleClick(event) {
+            event.currentTarget.classList.add('clicked');
+        }
+    </script>
+</head>
+<body class="bg-gray-100">
+    <div class="flex h-screen">
+        <!-- Sidebar -->
+        <div class="bg-[#C53F3F] text-white w-1/4 p-6 flex flex-col justify-between shadow-lg">
+            <div>
+                <div class="flex items-center mb-8">
+                    <div class="bg-black rounded-full w-12 h-12 flex items-center justify-center">
+                        <i class="fas fa-user text-2xl text-white"></i>
+                    </div>
+                    <div class="ml-4">
+                        <p class="font-bold">Admin Dashboard</p>
+                    </div>
+                </div>
+                <ul>
+                    <li class="mb-4 sidebar-item p-2 rounded"><a href="D:\module one\editprofile.html" class="text-white"><i class="fas fa-user-edit mr-2 text-black"></i>Edit Profile</a></li>
+                    <li class="mb-4 sidebar-item p-2 rounded"><a href="D:\module one\AccountSetting.html" class="text-white"><i class="fas fa-cog mr-2 text-black"></i>Account Settings</a></li>
+                    <li class="mb-4 sidebar-item p-2 rounded"><a href="D:\module one\ScenarioLibraryandMangement.html" class="text-white"><i class="fas fa-book mr-2 text-black"></i>Scenario Library and Management</a></li>
+                    <li class="mb-4 sidebar-item p-2 rounded"><a href="D:\module one\SystemHealthAndMonitoring.html" class="text-white"><i class="fas fa-heartbeat mr-2 text-black"></i>System Health and Monitoring</a></li>
+                    <li class="mb-4 sidebar-item p-2 rounded bg-gray-800"><span class="font-bold"><i class="fas fa-chart-line mr-2 text-black"></i>Analytics</span></li>
+                </ul>
+            </div>
+            <div>
+                <ul>
+         
+                    <li class="mb-4 sidebar-item p-2 rounded"><a href="D:\module one\signout.html" class="text-white"><i class="fas fa-heartbeat mr-2 text-black"></i>Sign Out</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- Main Content -->
+        <div class="flex-1 p-6">
+            <h1 class="text-3xl font-bold mb-6">Analytics</h1>
+            <div class="bg-white p-6 rounded-lg shadow-lg h-full w-11/12 mx-auto">
+                <div class="grid grid-cols-3 gap-6 mb-6 h-1/3">
+                    <div class="bg-gray-200 p-8 rounded-lg text-center shadow-md hover-reveal disappear-on-click" onclick="handleClick(event)">
+                        <p class="text-lg font-semibold">Total Users</p>
+                        <p class="text-3xl font-bold hover-text">200</p>
+                    </div>
+                    <div class="bg-gray-200 p-8 rounded-lg text-center shadow-md hover-reveal disappear-on-click" onclick="handleClick(event)">
+                        <p class="text-lg font-semibold">Active Users</p>
+                        <p class="text-3xl font-bold hover-text">124</p>
+                    </div>
+                    <div class="bg-gray-200 p-8 rounded-lg text-center shadow-md hover-reveal disappear-on-click" onclick="handleClick(event)">
+                        <p class="text-lg font-semibold">Training Sessions</p>
+                        <p class="text-3xl font-bold hover-text">350</p>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-6 h-2/3">
+                    <div class="bg-gray-200 p-8 rounded-lg text-center shadow-md flex flex-col justify-center">
+                        <p class="font-extrabold text-xl mb-4">Usage Summary</p>
+                        <div class="mt-4 flex justify-between">
+                            <p class="font-semibold">Average Session Duration</p>
+                            <p class="text-lg">2h 15m</p>
+                        </div>
+                        <div class="mt-2 flex justify-between">
+                            <p class="font-semibold">Most Popular Scenario</p>
+                            <p class="text-sm">Emergency Landing</p>
+                        </div>
+                    </div>
+                    <div class="bg-gray-200 p-8 rounded-lg text-center shadow-md flex flex-col justify-center">
+                        <p class="font-extrabold text-xl mb-4">User Activity Distribution</p>
+                        <div class="mt-4 flex justify-between">
+                            <p class="font-semibold">Active Users Percentage</p>
+                            <p class="text-3xl font-bold">50.6%</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

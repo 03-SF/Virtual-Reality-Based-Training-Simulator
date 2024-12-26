@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Settings</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0; /* Light grey background */
+            color: #333; /* Dark grey text */
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background-color: white; /* White background for the form */
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #C53F3F; /* Red color for the heading */
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            font-size: 1.1em; /* Slightly larger font size */
+        }
+
+        select,
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc; /* Light grey border */
+            border-radius: 5px;
+            box-sizing: border-box; /* Include padding and border in element's total width and height */
+            transition: border-color 0.3s ease;
+        }
+
+        select:focus,
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="password"]:focus {
+            border-color: #C53F3F; /* Change border color on focus */
+            outline: none; /* Remove default outline */
+        }
+
+        button {
+            background-color: #C53F3F; /* Red background for the button */
+            color: white; /* White text */
+            border: none;
+            padding: 12px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em; /* Standard font size */
+            transition: background-color 0.3s ease;
+            width: 100%; /* Full width */
+        }
+
+        button:hover {
+            background-color: #a32e2e; /* Darker red on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Account Settings</h1>
+        <form action="/update-settings" method="POST">
+            <div class="form-group">
+                <label for="role">Select Role:</label>
+                <select id="role" name="role" required>
+                    <option value="" disabled selected>Select your role</option>
+                    <option value="admin">Admin</option>
+                    <option value="pilot">Pilot</option>
+                    <option value="student">Student</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">New Password:</label>
+                <input type="password" id="password" name="password">
+            </div>
+
+            <div class="form-group">
+                <button type="submit">Save Changes</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

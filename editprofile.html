@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Profile</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0; /* Light grey background */
+            color: #333; /* Dark grey text */
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background-color: white; /* White background for the form */
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s ease;
+        }
+
+        .container:hover {
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2); /* Shadow effect on hover */
+        }
+
+        h1 {
+            color: #C53F3F; /* Red color for the heading */
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2em; /* Larger font size */
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            font-size: 1.1em; /* Slightly larger font size */
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="file"] {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc; /* Light grey border */
+            border-radius: 5px;
+            box-sizing: border-box; /* Include padding and border in element's total width and height */
+            transition: border-color 0.3s ease;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="password"]:focus {
+            border-color: #C53F3F; /* Change border color on focus */
+            outline: none; /* Remove default outline */
+        }
+
+        button {
+            background-color: #C53F3F; /* Red background for the button */
+            color: white; /* White text */
+            border: none;
+            padding: 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 1.1em; /* Slightly larger font size */
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #a32e2e; /* Darker red on hover */
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #777; /* Grey color for footer text */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Edit Profile</h1>
+        <form action="/update-profile" method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+
+            <div class="form-group">
+                <label for="profile-pic">Profile Picture:</label>
+                <input type="file" id="profile-pic" name="profile-pic" accept="image/*">
+            </div>
+
+            <div class="form-group">
+                <button type="submit">Update Profile</button>
+            </div>
+        </form>
+        <div class="footer">
+            <p>© 2023 Your Website. All rights reserved.</p>
+        </div>
+    </div>
+</body>
+</html>
